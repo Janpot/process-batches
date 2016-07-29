@@ -1,16 +1,16 @@
-# batch-process
+# process-batches
 
 Asynchronously process series in batches.
 
 This module allows you to process series of jobs in chunks of predefined size.
 It can process them in parallel.
 
-[![Build Status](https://travis-ci.org/Janpot/batch-process.svg?branch=master)](https://travis-ci.org/Janpot/batch-process)
+[![Build Status](https://travis-ci.org/Janpot/process-batches.svg?branch=master)](https://travis-ci.org/Janpot/process-batches)
 
 ## Example
 
 ```js
-var processBatches = require('batch-process');
+var processBatches = require('process-batches');
 
 processBatches((offset, limit) => {
   return db.getUsers(offset, limit);
