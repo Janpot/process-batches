@@ -34,6 +34,8 @@ batchProcess((offset, limit) => {
 batchProcess(source, options, processFn)
 ```
 
+Returns a promise that is fulfilled when all the batches are processed.
+
 ### `source`
 
 ```
