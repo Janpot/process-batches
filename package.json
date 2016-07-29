@@ -1,5 +1,5 @@
 {
-  "name": "batch-process",
+  "name": "process-batches",
   "version": "0.0.1",
   "description": "Asynchronously process series in batches",
   "main": "lib",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/janpot/batch-process"
+    "url": "https://github.com/janpot/process-batches"
   },
   "keywords": [
     "batch",
@@ -22,9 +22,9 @@
   "author": "Jan Potoms",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/janpot/batch-process/issues"
+    "url": "https://github.com/janpot/process-batches/issues"
   },
-  "homepage": "https://github.com/janpot/batch-process",
+  "homepage": "https://github.com/janpot/process-batches",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
