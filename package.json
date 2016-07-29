@@ -1,0 +1,35 @@
+{
+  "name": "batch-process",
+  "version": "0.0.1",
+  "description": "Asynchronously process series in batches",
+  "main": "lib",
+  "scripts": {
+    "mocha": "mocha test",
+    "watch:mocha": "mocha -w test",
+    "lint": "semistandard | snazzy",
+    "test": "npm run lint && nyc npm run mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janpot/batch-process"
+  },
+  "keywords": [
+    "batch",
+    "process",
+    "promise",
+    "map"
+  ],
+  "author": "Jan Potoms",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/janpot/batch-process/issues"
+  },
+  "homepage": "https://github.com/janpot/batch-process",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "nyc": "^7.1.0",
+    "semistandard": "^8.0.0",
+    "snazzy": "^4.0.0"
+  }
+}
