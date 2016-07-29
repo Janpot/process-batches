@@ -10,9 +10,9 @@ It can process them in parallel.
 ## Example
 
 ```js
-var batchProcess = require('batch-process');
+var processBatches = require('batch-process');
 
-batchProcess((offset, limit) => {
+processBatches((offset, limit) => {
   return db.getUsers(offset, limit);
 }, {
   size: 10,
@@ -31,7 +31,7 @@ batchProcess((offset, limit) => {
 ## API
 
 ```js
-batchProcess(source, options, processFn)
+processBatches(source, options, processFn)
 ```
 
 Returns a promise that is fulfilled when all the batches are processed.
