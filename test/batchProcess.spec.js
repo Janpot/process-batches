@@ -124,7 +124,7 @@ describe('processBatches', function () {
     var input = [[1, 2], [3, 4, 5], null];
     return processBatches(() => {
       return Promise.resolve(input.shift());
-    }, 2, batch => {
+    }, batch => {
       batches.push(batch);
     })
       .then(() => {
