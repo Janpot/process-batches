@@ -1,6 +1,6 @@
 {
   "name": "process-batches",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Asynchronously process series in batches",
   "main": "lib",
   "scripts": {
