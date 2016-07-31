@@ -7,14 +7,6 @@ function delay (time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
-function fromArray (array, batchSize = 1) {
-  return i => {
-    var fromIndex = i * batchSize;
-    var toIndex = fromIndex + batchSize;
-    return array.slice(fromIndex, toIndex);
-  };
-}
-
 describe('processBatches', function () {
   it('maps empty iterator', function () {
     return processBatches(() => null, 2, batch => {
@@ -24,7 +16,7 @@ describe('processBatches', function () {
 
   it('passes index', function () {
     var indices = [];
-    return processBatches(fromArray([1, 2, 3, 4, 5], 2), (batch, offset) => {
+    return processBatches.fromArray([1, 2, 3, 4, 5], 2, (batch, offset) => {
       indices.push(offset);
     })
       .then(() => assert.deepEqual(indices, [0, 1, 2]));
@@ -33,7 +25,7 @@ describe('processBatches', function () {
   it('does promises', function () {
     var batches = [];
     var counter = 0;
-    return processBatches(fromArray([1, 2, 3, 4, 5, 6], 2), batch => {
+    return processBatches.fromArray([1, 2, 3, 4, 5, 6], 2, batch => {
       assert.strictEqual(counter, 0);
       batches.push(batch);
       counter += 1;
@@ -50,7 +42,7 @@ describe('processBatches', function () {
   it('fails on error', function () {
     var batches = [];
     var error = new Error('test');
-    return processBatches(fromArray([1, 2], 1), batch => {
+    return processBatches.fromArray([1, 2], 1, batch => {
       batches.push(batch);
       return Promise.reject(error);
     })
@@ -65,7 +57,7 @@ describe('processBatches', function () {
   it('fails on synchronous error', function () {
     var batches = [];
     var error = new Error('test');
-    return processBatches(fromArray([1, 2], 1), batch => {
+    return processBatches.fromArray([1, 2], 1, batch => {
       batches.push(batch);
       throw error;
     })
@@ -146,7 +138,8 @@ describe('processBatches', function () {
     var counter = 0;
     var delays = [50, 100, 70, 30, 30];
     var counts = [];
-    return processBatches(fromArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2), {
+    return processBatches.fromArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], {
+      size: 2,
       concurrency: 3
     }, (batch, offset) => {
       counter += 1;
