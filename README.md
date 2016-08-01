@@ -82,7 +82,7 @@ The `options` parameter can also be passed as a number as a shorthand for the si
 **Example:**
 
 ```js
-processBatches([1, 2, 3, 4, 5, 6, 7], 3, batch => {
+processBatches.fromArray([1, 2, 3, 4, 5, 6, 7], 3, batch => {
   console.log(`this batch: [${batch.join(', ')}]!`);
 });
 // prints:
